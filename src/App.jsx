@@ -23,7 +23,9 @@ import two from "./assets/Two.svg";
 import three from "./assets/Three.svg";
 import holding from "./assets/Holding.svg";
 import w from "./assets/W.svg";
-import full from "./assets/Fullbg.svg";
+import full from "./assets/Fullback.png";
+import Footer from "./components/manual/Footer";
+import SimpleSlider from "./components/manual/Slider";
 
 function App() {
   return (
@@ -32,7 +34,11 @@ function App() {
       <Flex alignItems="center" flexDirection={{ base: "column", md: "row" }}>
         <Box flex={2} justifyItems="end">
           {" "}
-          <VStack gap={2} maxW="400px" alignItems="flex-start">
+          <VStack
+            gap={2}
+            maxW="400px"
+            alignItems={{ base: "center", md: "flex-start" }}
+          >
             <Heading fontSize={{ base: "xl", md: "3xl" }}>
               Reimagining social media through the power of the blockchain.
             </Heading>
@@ -47,7 +53,7 @@ function App() {
             </Button>
           </VStack>{" "}
         </Box>
-        <Image flex={1} maxW="65%" src={Banner} />
+        <Image flex={1} maxW={{ base: "100%", md: "65%" }} src={Banner} />
       </Flex>
       <Container>
         <Flex
@@ -57,7 +63,7 @@ function App() {
           flexDirection={{ base: "column", md: "row" }}
         >
           <Flex flexDirection="column" justifyContent="flex-start">
-            <Box p={8} bg="gray" borderRadius="30px" minH="350px" W="700px">
+            <Box p={8} bg="#171B29" borderRadius="30px" minH="350px" W="700px">
               <VStack alignItems="flex-start" maxW="600px">
                 <Box
                   w="70px"
@@ -94,7 +100,13 @@ function App() {
             </Box>
           </Flex>
           <Flex flexDirection="column" justifyContent="flex-end">
-            <Box bg="gray" borderRadius="30px" p={8} minH="350px" maxW="700px">
+            <Box
+              bg="#171B29"
+              borderRadius="30px"
+              p={8}
+              minH="350px"
+              maxW="700px"
+            >
               <VStack alignItems="flex-start" maxW="600px">
                 <Box
                   w="70px"
@@ -132,18 +144,20 @@ function App() {
         </Flex>
       </Container>
 
-      <Flex w="100%">
-        <Image src={Colored} flex={1} w="50%" />
+      <Flex w="100%" mt={10} flexDirection={{ base: "column", md: "row" }}>
+        <Image src={Colored} flex={1} w={{ base: "100%", md: "50%" }} />
         <Box
           flex={1}
           p={8}
           bg="white"
-          borderTopLeftRadius="300px"
+          borderTopLeftRadius={{ base: "135px", md: "200px", lg: "300px" }}
           alignContent="center"
           justifyItems="center"
         >
           <VStack color="black" maxW="500px" gap={5}>
-            <Heading fontSize="3xl">What makes us different?</Heading>
+            <Heading textAlign="center" fontSize="3xl">
+              What makes us different?
+            </Heading>
             <Text fontSize="md">
               There are several thousand celebrities and creators on twitter,
               tiktok, Instagram and YouTube with followings in the millions who
@@ -161,7 +175,15 @@ function App() {
         </Box>
       </Flex>
       <Container>
-        <Grid templateColumns="repeat(4, 1fr)" gap="6" p={8}>
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(4, 1fr)",
+          }}
+          gap="6"
+          p={8}
+        >
           <VStack alignItems="flex-start">
             <HStack>
               <Image src={one} maxWidth="50%" />
@@ -223,8 +245,8 @@ function App() {
             </List.Root>
           </VStack>
         </Grid>
-        <Flex>
-          <Box width="50%" justifyItems="center">
+        <Flex mt={10} flexDirection={{ base: "column", md: "row" }}>
+          <Box width={{ base: "100%", md: "50%" }} justifyItems="center">
             <VStack gap={5} maxW={"500px"} alignItems="flex-start">
               <HStack>
                 <Image src={w} />{" "}
@@ -269,28 +291,36 @@ function App() {
               </Button>
             </VStack>
           </Box>
-          <Image src={holding} objectFit="contain" maxW="50%" />
+          <Image
+            src={holding}
+            objectFit="contain"
+            width={{ base: "100%", md: "50%" }}
+          />
         </Flex>
       </Container>
-      <Box position="relative" width="100%" height="50vh">
-        <Image
-          src={full}
-          alt="Background"
-          objectFit="cover"
-          width="100%"
-          height="110vh"
-        />
+      <Box
+        backgroundImage={`url(${full})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        h="100vh"
+        width="100%"
+      >
         <Container
-          position="absolute"
-          top="90%"
-          left="0"
+          h="inherit"
           width="100%"
-          height="100%"
-          alignContent="center"
+          alignContent="end"
           justifyItems="center"
         >
           <Heading>Presale Details</Heading>
-          <Grid templateColumns="repeat(3, 1fr)" gap="6" p={8} minH="50vh">
+
+          <Grid
+            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
+            gap="6"
+            p={8}
+            minH="50vh"
+            width="100%"
+          >
             <Box
               bgColor="white"
               color="black"
@@ -345,6 +375,7 @@ function App() {
           </Grid>
         </Container>
       </Box>
+      <Footer />
     </>
   );
 }

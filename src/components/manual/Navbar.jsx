@@ -19,8 +19,15 @@ const Navbar = () => {
           </Flex>
         </Flex>
         <Flex gap={4} display={{ base: "none", md: "flex" }}>
-          <Button> Login</Button>
-          <Button>SignUp</Button>
+          <Button bg="transparent"> Login</Button>
+          <Button
+            bg="transparent"
+            border="solid"
+            borderColor="green.400"
+            borderRadius="20px"
+          >
+            SignUp
+          </Button>
         </Flex>
       </Flex>
     </Container>
