@@ -61,7 +61,7 @@ const Footer = () => {
         width="100%"
         mt={10}
         h="50vh"
-        justifyContent="space-between"
+        justifyContent={{ base: "center", md: "space-between" }}
       >
         <Flex
           width="100%"

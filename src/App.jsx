@@ -11,6 +11,7 @@ import {
   List,
   Span,
   Text,
+  useBreakpointValue,
   VStack,
 } from "@chakra-ui/react";
 import Navbar from "./components/manual/Navbar";
@@ -28,6 +29,7 @@ import Footer from "./components/manual/Footer";
 import SimpleSlider from "./components/manual/Slider";
 
 function App() {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   return (
     <>
       <Navbar />
@@ -313,66 +315,59 @@ function App() {
           justifyItems="center"
         >
           <Heading>Presale Details</Heading>
-
-          <Grid
-            templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
-            gap="6"
-            p={8}
-            minH="50vh"
-            width="100%"
-          >
-            <Box
-              bgColor="white"
-              color="black"
-              p={12}
-              borderRadius="20px"
-              minW="300px"
+          {isMobile ? (
+            <SimpleSlider />
+          ) : (
+            <Grid
+              templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
+              gap="6"
+              p={8}
+              minH="50vh"
+              width="100%"
             >
-              <VStack gap={10}>
-                <Image src={one} />
-                <Heading>Phase One</Heading>
-                <VStack>
-                  <Text>1 BNB = 100000 WNTR</Text>
-                  <Text>Soft cap: 5000 BNB</Text>
-                  <Text>Hard cap: 10000 BNB</Text>
-                </VStack>
-              </VStack>
-            </Box>
-            <Box
-              bgColor="white"
-              color="black"
-              p={12}
-              borderRadius="20px"
-              minW="300px"
-            >
-              <VStack gap={10}>
-                <Image src={two} />
-                <Heading>Phase Two</Heading>
-                <VStack>
-                  <Text>1 BNB = 100000 WNTR</Text>
-                  <Text>Soft cap: 5000 BNB</Text>
-                  <Text>Hard cap: 10000 BNB</Text>
-                </VStack>
-              </VStack>
-            </Box>
-            <Box
-              bgColor="white"
-              color="black"
-              p={12}
-              borderRadius="20px"
-              minW="300px"
-            >
-              <VStack gap={10}>
-                <Image src={three} />
-                <Heading>Phase Three</Heading>
-                <VStack>
-                  <Text>1 BNB = 100000 WNTR</Text>
-                  <Text>Soft cap: 5000 BNB</Text>
-                  <Text>Hard cap: 10000 BNB</Text>
-                </VStack>
-              </VStack>
-            </Box>
-          </Grid>
+              <Box p={4}>
+                {" "}
+                <Box bgColor="white" color="black" p={12} borderRadius="20px">
+                  <VStack gap={10}>
+                    <Image src={one} />
+                    <Heading>Phase One</Heading>
+                    <VStack>
+                      <Text>1 BNB = 100000 WNTR</Text>
+                      <Text>Soft cap: 5000 BNB</Text>
+                      <Text>Hard cap: 10000 BNB</Text>
+                    </VStack>
+                  </VStack>
+                </Box>
+              </Box>
+              <Box p={4}>
+                <Box bgColor="white" color="black" p={12} borderRadius="20px">
+                  <VStack gap={10}>
+                    <Image src={two} />
+                    <Heading>Phase Two</Heading>
+                    <VStack>
+                      <Text>1 BNB = 100000 WNTR</Text>
+                      <Text>Soft cap: 5000 BNB</Text>
+                      <Text>Hard cap: 10000 BNB</Text>
+                    </VStack>
+                  </VStack>
+                </Box>
+              </Box>
+              <Box p={4}>
+                {" "}
+                <Box bgColor="white" color="black" p={12} borderRadius="20px">
+                  <VStack gap={10}>
+                    <Image src={three} />
+                    <Heading>Phase Three</Heading>
+                    <VStack>
+                      <Text>1 BNB = 100000 WNTR</Text>
+                      <Text>Soft cap: 5000 BNB</Text>
+                      <Text>Hard cap: 10000 BNB</Text>
+                    </VStack>
+                  </VStack>
+                </Box>
+              </Box>
+            </Grid>
+          )}
         </Container>
       </Box>
       <Footer />
