@@ -305,7 +305,7 @@ function App() {
         backgroundSize="cover"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
-        h="100vh"
+        h="125vh"
         width="100%"
       >
         <Container
